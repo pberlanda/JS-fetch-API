@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS fetch API</title>
+</head>
+<body>
+    <p id="demo"></p>
+    <script>
+
+        loadfile("data.txt");
+
+        async function loadfile(file) {
+
+            // PROMISE
+            // ti prometto che ti restituisco un file...
+            // ma mi serve tempo! devi pazientare: 
+            // await fetch() restituisce una promise che viene
+            // mantenuta restituendo l'oggetto response
+            const response = await fetch(file);
+
+            // PROMISE
+            // response.text() restituisce una PROMISE
+            // => serve await che permette di mantenere la promessa salvando nella variabile .text()
+            // le altre proprietä vengono soddisfatte immediatamente
+            testo = await response.text();
+
+            // TEST in console
+            console.log(testo); // -> vedi sopra il motivo
+            console.log(response.ok);
+            console.log(response.status);
+            console.log(response.statusText);
+            console.log(response.url);
+        }
+    </script>
+</body>
+</html>
