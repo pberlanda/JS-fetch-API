@@ -5,8 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS fetch API</title>
 </head>
-<body>
-    <p id="demo"></p>
+<body style="background-color: rgb(211, 211, 211);">
+
+    <div style="background-color: azure; border-style: solid; border-color: blue; padding: 1rem;">
+        <p id="demo"></p>
+    </div>
+    
+    <div style="background-color: azure; border-style: solid; border-color: blue; margin-top: 1rem; padding: 1rem;">
+    <p id="status">
+        <ul id="response-properties">
+            <li id="item1"></li>
+            <li id="item2"></li>
+            <li id="item3"></li>
+            <li id="item4"></li>
+        </ul>
+    </p>
+    </div>
+
+
     <script>
 
         loadfile("data.txt");
@@ -35,6 +51,14 @@
 
             // visualizzo nella pagina il contenuto del file
             document.getElementById("demo").innerText=testo;
+
+            // visualizzo anche le altre proprietá della response
+            document.getElementById("item1").innerText=response.ok;
+            document.getElementById("item2").innerText=response.status;
+            document.getElementById("item3").innerText=response.statusText;
+            document.getElementById("item4").innerText=response.url;
+            
+
         }
     </script>
 </body>
